@@ -1,0 +1,36 @@
+def solution(answers):
+    answer = []
+    a = [1,2,3,4,5]
+    b = [2,1,2,3,2,4,2,5]
+    c = [3,3,1,1,2,2,4,4,5,5]
+    
+    cnt1 = 0
+    cnt2 = 0
+    cnt3 = 0
+    ans = [0,0,0]
+    
+    for i in range(len(answers)):
+        if cnt1 == len(a):
+            cnt1 = 0
+        if cnt2 == len(b):
+            cnt2 = 0
+        if cnt3 == len(c):
+            cnt3 = 0     
+        if a[cnt1] == answers[i]:
+            ans[0]+=1
+        if b[cnt2] == answers[i]:
+            ans[1]+=1
+        if c[cnt3] == answers[i]:
+            ans[2]+=1
+        
+        cnt1 +=1
+        cnt2 +=1
+        cnt3 +=1
+        
+    max_ans = max(ans)
+    
+    for i in range(len(ans)):
+        if ans[i] == max_ans:
+            answer.append(i+1)
+    
+    return answer
