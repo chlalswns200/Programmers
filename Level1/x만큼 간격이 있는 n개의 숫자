@@ -1,0 +1,7 @@
+def solution(x, n):
+    x1 = x
+    answer = []
+    for i in range(n):
+        answer.append(x1)
+        x1 += x
+    return answer
