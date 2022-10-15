@@ -1,0 +1,32 @@
+def find(reserve,num):
+    c = 0 
+    try : reserve.index(num)
+    except: c = -1
+    return c
+
+def solution(n, lost, reserve):
+    
+    #lost.sort()
+    #reserve.sort()
+    new_lost = []
+    
+    for i in lost:
+        print("i",i)
+        if i in reserve:
+            reserve.remove(i)
+        else: new_lost.append(i)
+            
+    lost = new_lost
+    answer = n-len(lost)
+    
+    for i in lost:
+        if (i-1) in reserve:
+            answer +=1
+            reserve.remove(i-1)
+        elif (i+1) in reserve:
+            answer +=1
+            reserve.remove(i+1)
+        
+    print("최종 남은거",lost,reserve)
+    
+    return answer
