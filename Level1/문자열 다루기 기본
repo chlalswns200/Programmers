@@ -1,0 +1,6 @@
+def solution(s):
+    answer = True
+    if len(s) in range(4,6):
+        print(len(s))
+    return answer
+            
