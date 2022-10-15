@@ -1,0 +1,13 @@
+from itertools import combinations
+def solution(nums):
+    max_cnt = len(nums)/2
+    my_pokemon = []
+    for i in nums:
+        if i in my_pokemon:
+            a = 1
+        else: my_pokemon.append(i)
+        if max_cnt == len(my_pokemon):
+            break
+        
+    answer = len(my_pokemon)    
+    return answer
