@@ -1,0 +1,16 @@
+import math
+from itertools import permutations ,combinations
+
+def solution(d, budget):
+    
+    d.sort()
+    answer = 0
+    sum=0
+    for i in d:
+        sum+=i
+        if sum>budget:
+            return answer
+        else :answer += 1
+        
+        
+    return answer
