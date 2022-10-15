@@ -1,0 +1,7 @@
+def solution(n):
+    sum =""
+    while(n>0):
+        n,w =  divmod(n,3)
+        sum += str(w)
+    answer = int(sum,3)
+    return answer
