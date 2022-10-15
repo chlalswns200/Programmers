@@ -1,0 +1,6 @@
+def solution(n):
+    q = ''.join(reversed(str(n)))
+    answer = []
+    for i in q:
+        answer.append(int(i))
+    return answer
