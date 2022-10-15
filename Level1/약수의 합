@@ -1,0 +1,7 @@
+def solution(n):
+    li = []
+    for i in range(n):
+        if n % (i+1) == 0:
+            li.append(i+1)
+    answer = sum(li)
+    return answer
