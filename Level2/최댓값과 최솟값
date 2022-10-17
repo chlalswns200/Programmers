@@ -1,0 +1,7 @@
+def solution(s):
+    li = list(map(int,s.split()))
+        
+    numA = min(li)
+    numB = max(li)
+
+    return str(numA) + " "+str(numB)
