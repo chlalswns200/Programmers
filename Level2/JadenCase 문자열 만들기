@@ -1,0 +1,10 @@
+def solution(s):
+    s = s.lower()
+    li = list(s)
+
+    for i in range(len(li)):
+        if(i==0 or li[i-1]==" "):
+            li[i] = li[i].upper()
+
+    answer = ''.join(li)
+    return answer
