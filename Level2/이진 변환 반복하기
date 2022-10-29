@@ -1,0 +1,24 @@
+def solution(s):
+    answer = []
+    sum = 0
+    cnt = 0
+    strlen = len(s)
+    while(strlen>1):
+        cnt+=1
+        zeroCount = 0
+        for i in s:
+            if i == "0":
+                zeroCount = zeroCount+1
+                
+        sum +=zeroCount
+        
+        s = s.replace("0","")
+        strlen = len(s)
+        
+        s = str(format(strlen,'b'))
+    
+    answer.append(cnt)
+    answer.append(sum)
+    
+    
+    return answer
