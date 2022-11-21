@@ -1,0 +1,7 @@
+def solution(brown, yellow):
+    sum = brown + yellow
+    for col in range(3, sum + 1):
+        if (sum / col) % 1 == 0:
+            row = sum // col
+            if row >= col and (2 * row) + (2 * col) == brown + 4:
+                return [row, col]
