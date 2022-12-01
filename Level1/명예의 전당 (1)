@@ -1,0 +1,16 @@
+def solution(k, score):
+    answer = []
+    hof = []
+    cnt = 0
+    for i in score:
+        if(len(hof)<k):
+            hof.append(i)
+            answer.append(min(hof))
+        else:
+            if i>(min(hof)):
+                hof[hof.index(min(hof))] = i
+                answer.append(min(hof))
+            else:
+                answer.append(min(hof))
+            
+    return answer
