@@ -1,0 +1,21 @@
+def Hanoi(num,fro,by,to,li):
+    if num ==1:
+        list = []
+        list.append(fro)
+        list.append(to)
+        li.append(list)
+    else:
+        Hanoi(num-1,fro,to,by,li)
+        list = []
+        list.append(fro)
+        list.append(to)
+        li.append(list)
+        Hanoi(num-1,by,fro,to,li)
+
+    return li
+
+def solution(n):
+    li = []
+    answer = Hanoi(n,1,2,3,li)
+
+    return answer
