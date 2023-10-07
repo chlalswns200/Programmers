@@ -1,0 +1,28 @@
+import heapq
+from collections import deque
+
+
+def solution(priorities, location):
+    answer = 0
+    q = deque()
+    for i in range(len(priorities)):
+        q.append((priorities[i], i))
+    cnt = 0
+
+    while q:
+        val, idx = q.popleft()
+        check = True
+        remove_num = 0
+        for i in priorities:
+            if val < i:
+                check = False
+                break
+        if check:
+            cnt += 1
+            priorities.remove(val)
+            if location == idx:
+                return cnt
+        else:
+            q.append((val, idx))
+
+    return answer
