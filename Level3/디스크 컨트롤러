@@ -1,0 +1,28 @@
+import heapq
+
+def solution(jobs):
+    jobs.sort()
+    waiting = []
+    count = []
+    
+    now = 0
+    tasks = len(jobs)
+    
+    while len(count) != tasks:
+        while jobs and now >= jobs[0][0]:
+            start,cost = jobs.pop(0)
+            heapq.heappush(waiting,(cost,start))
+        
+        if jobs and waiting == []:
+            start,cost = jobs.pop(0)
+            now = start
+            heapq.heappush(waiting,(cost,start))
+            
+        x,y = heapq.heappop(waiting)
+        now += x
+        count.append(now-y)
+        
+                
+    answer = sum(count)//tasks
+    
+    return answer
