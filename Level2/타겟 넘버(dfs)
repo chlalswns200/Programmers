@@ -1,0 +1,12 @@
+def solution(numbers, target):
+    top = [0]
+    
+    for i in numbers:
+        child = []
+        for j in top:
+            child.append(j+i)
+            child.append(j-i)
+        top = child
+    
+    
+    return top.count(target)
