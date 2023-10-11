@@ -1,0 +1,37 @@
+from collections import deque
+
+def solution(begin, target, words):
+    
+    check = False
+    for i in words:
+        if target == i:
+            check = True
+    if not check:
+        return 0
+        
+    answer = 0
+    queue = deque([begin])
+    limit = len(begin)-1
+    cnt = 0
+    while queue:
+        start_word = queue.popleft()
+        if start_word == target:
+            return cnt
+        max = 0
+        max_word = 'str'
+        for word in words:
+            begin_count = 0
+            target_count = 0
+            for j in range(len(word)):
+                if start_word[j] == word[j]:
+                    begin_count+=1
+                if target[j] == word[j]:
+                    target_count +=1
+                if begin_count==limit and target_count>max:
+                    max_word = word
+                    max = target_count
+        words.remove(max_word)
+        queue.append(max_word)
+        cnt+=1        
+    
+    return answer
