@@ -1,0 +1,28 @@
+def solution(n, results):
+    answer = 0
+    score = []
+    for i in range(n):
+            score.append([0] * n)
+            
+    for r in results:
+        x, y = r
+        score[x - 1][y - 1] = 1
+        score[y - 1][x - 1] = -1
+
+    for i in range(len(score)):
+        for j in range(len(score)):
+            if score[i][j] == 1:
+                for k in range(len(score)):
+                    if score[j][k] == 1:
+                        score[k][i] = -1
+                        score[i][k] = 1
+            elif score[i][j] == -1:
+                for k in range(len(score)):
+                    if score[j][k] == -1:
+                        score[i][k] = -1
+                        score[k][i] = 1
+    for k in score:
+        if k.count(0) == 1:
+            answer += 1
+            
+    return answer
