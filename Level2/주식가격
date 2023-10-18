@@ -1,0 +1,17 @@
+from collections import deque
+
+def solution(prices):
+    answer = [0] * len(prices)
+    stack = []
+    
+    for idx,value in enumerate(prices):
+        while stack and value<prices[stack[-1]]:
+            st = stack.pop()
+            answer[st] = idx - st
+        stack.append(idx)
+    
+    while stack:
+        idx = stack.pop()
+        answer[idx] = len(prices)-1-idx
+    
+    return answer
