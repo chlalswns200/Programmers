@@ -1,0 +1,25 @@
+from itertools import permutations
+
+def solution(k, dungeons):
+    answer = -1
+    idx_array = []
+    dungeon_len = len(dungeons)
+    
+    for i in range(len(dungeons)):
+        idx_array.append(i)
+    
+    path = list(permutations(idx_array,dungeon_len))
+    
+    max_cnt = 0
+    for i in path:
+        cnt = 0
+        tmp = k
+        for j in i:
+            if dungeons[j][0]<=tmp:
+                tmp -= dungeons[j][1]
+                cnt+=1
+        if max_cnt<cnt:
+            max_cnt = cnt
+            
+    
+    return max_cnt
