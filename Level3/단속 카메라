@@ -1,0 +1,15 @@
+def solution(routes):
+    answer = 1
+    routes = sorted(routes,key = lambda x:x[1])
+    
+    now = routes[0][1]
+    for i in routes:
+        start,end = i
+        if now >= start:
+            continue
+        else:
+            now = end
+            answer+=1
+            
+            
+    return answer
